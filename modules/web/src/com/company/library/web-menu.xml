@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-library" insertBefore="administration" caption="mainMsg://menu_config.application-library">
+        <item screen="library_Membership.browse" caption="mainMsg://menu_config.library_Membership.browse"/>
+        <item screen="library_Customer.browse" caption="mainMsg://menu_config.library_Customer.browse"/>
+        <item screen="library_Book.browse" caption="mainMsg://menu_config.library_Book.browse"/>
+        <item screen="library_Rent.browse" caption="mainMsg://menu_config.library_Rent.browse"/>
+    </menu>
+</menu-config>

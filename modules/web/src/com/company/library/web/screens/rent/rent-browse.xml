@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://rentBrowse.caption"
+        focusComponent="rentsTable"
+        messagesPack="com.company.library.web.screens.rent">
+    <data readOnly="true">
+        <collection id="rentsDc"
+                    class="com.company.library.entity.Rent">
+            <view extends="_local">
+                <property name="customer" view="_minimal"/>
+                <property name="book" view="_minimal"/>
+            </view>
+            <loader id="rentsDl">
+                <query>
+                    <![CDATA[select e from library_Rent e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="rentsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="rentsTable"
+                dataLoader="rentsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="rentsTable"
+                    width="100%"
+                    dataContainer="rentsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="customer"/>
+                <column id="book"/>
+                <column id="rentStart"/>
+                <column id="rentEnd"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="rentsTable.create"/>
+                <button id="editBtn" action="rentsTable.edit"/>
+                <button id="removeBtn" action="rentsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
