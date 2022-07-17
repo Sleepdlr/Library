@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="library_Customer" name="customer-extended-view" extends="_local">
+        <property name="membership" view="_minimal">
+            <property name="borrowLimit"/>
+        </property>
+        <property name="rents" view="_minimal">
+
+        </property>
+    </view>
+</views>
